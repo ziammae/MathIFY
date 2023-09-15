@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MathIFY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .shape-container {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>MathIFY</h1>
+    <div class="shape-container">
+        <h2>Square</h2>
+        <label for="squareSide">Enter side length:</label>
+        <input type="number" id="squareSide" placeholder="Side length">
+        <button onclick="calculateSquare()">Calculate</button>
+        <p>Area: <span id="squareArea"></span> square units</p>
+        <p>Perimeter: <span id="squarePerimeter"></span> units</p>
+    </div>
+
+    <div class="shape-container">
+        <h2>Circle</h2>
+        <label for="circleRadius">Enter radius:</label>
+        <input type="number" id="circleRadius" placeholder="Radius">
+        <button onclick="calculateCircle()">Calculate</button>
+        <p>Area: <span id="circleArea"></span> square units</p>
+        <p>Circumference: <span id="circleCircumference"></span> units</p>
+    </div>
+
+    <div class="shape-container">
+        <h2>Rectangle</h2>
+        <label for="rectLength">Enter length:</label>
+        <input type="number" id="rectLength" placeholder="Length">
+        <label for="rectWidth">Enter width:</label>
+        <input type="number" id="rectWidth" placeholder="Width">
+        <button onclick="calculateRectangle()">Calculate</button>
+        <p>Area: <span id="rectArea"></span> square units</p>
+        <p>Perimeter: <span id="rectPerimeter"></span> units</p>
+    </div>
+
+    <div class="shape-container">
+        <h2>Trapezoid</h2>
+        <label for="trapBase1">Enter base 1:</label>
+        <input type="number" id="trapBase1" placeholder="Base 1">
+        <label for="trapBase2">Enter base 2:</label>
+        <input type="number" id="trapBase2" placeholder="Base 2">
+        <label for="trapHeight">Enter height:</label>
+        <input type="number" id="trapHeight" placeholder="Height">
+        <button onclick="calculateTrapezoid()">Calculate</button>
+        <p>Area: <span id="trapArea"></span> square units</p>
+        <p>Perimeter: <span id="trapPerimeter"></span> units</p>
+    </div>
+
+    <div class="shape-container">
+        <h2>Parallelogram</h2>
+        <label for="paraBase">Enter base:</label>
+        <input type="number" id="paraBase" placeholder="Base">
+        <label for="paraHeight">Enter height:</label>
+        <input type="number" id="paraHeight" placeholder="Height">
+        <button onclick="calculateParallelogram()">Calculate</button>
+        <p>Area: <span id="paraArea"></span> square units</p>
+        <p>Perimeter: <span id="paraPerimeter"></span> units</p>
+    </div>
+
+    <div class="shape-container">
+        <h2>Triangle</h2>
+        <label for="triBase">Enter base:</label>
+        <input type="number" id="triBase" placeholder="Base">
+        <label for="triHeight">Enter height:</label>
+        <input type="number" id="triHeight" placeholder="Height">
+        <button onclick="calculateTriangle()">Calculate</button>
+        <p>Area: <span id="triArea"></span> square units</p>
+        <p>Perimeter: <span id="triPerimeter"></span> units</p>
+    </div>
+
+    <script>
+        function calculateSquare() {
+            const side = parseFloat(document.getElementById('squareSide').value);
+            const area = side * side;
+            const perimeter = 4 * side;
+            document.getElementById('squareArea').textContent = area.toFixed(2);
+            document.getElementById('squarePerimeter').textContent = perimeter.toFixed(2);
+        }
+
+        function calculateCircle() {
+            const radius = parseFloat(document.getElementById('circleRadius').value);
+            const area = Math.PI * radius * radius;
+            const circumference = 2 * Math.PI * radius;
+            document.getElementById('circleArea').textContent = area.toFixed(2);
+            document.getElementById('circleCircumference').textContent = circumference.toFixed(2);
+        }
+
+        function calculateRectangle() {
+            const length = parseFloat(document.getElementById('rectLength').value);
+            const width = parseFloat(document.getElementById('rectWidth').value);
+            const area = length * width;
+            const perimeter = 2 * (length + width);
+            document.getElementById('rectArea').textContent = area.toFixed(2);
+            document.getElementById('rectPerimeter').textContent = perimeter.toFixed(2);
+        }
+
+        function calculateTrapezoid() {
+            const base1 = parseFloat(document.getElementById('trapBase1').value);
+            const base2 = parseFloat(document.getElementById('trapBase2').value);
+            const height = parseFloat(document.getElementById('trapHeight').value);
+            const area = ((base1 + base2) / 2) * height;
+            const perimeter = base1 + base2 + 2 * Math.sqrt(Math.pow((base2 - base1) / 2, 2) + Math.pow(height, 2));
+            document.getElementById('trapArea').textContent = area.toFixed(2);
+            document.getElementById('trapPerimeter').textContent = perimeter.toFixed(2);
+        }
+
+        function calculateParallelogram() {
+            const base = parseFloat(document.getElementById('paraBase').value);
+            const height = parseFloat(document.getElementById('paraHeight').value);
+            const area = base * height;
+            const perimeter = 2 * (base + height);
+            document.getElementById('paraArea').textContent = area.toFixed(2);
+            document.getElementById('paraPerimeter').textContent = perimeter.toFixed(2);
+        }
+
+        function calculateTriangle() {
+            const base = parseFloat(document.getElementById('triBase').value);
+            const height = parseFloat(document.getElementById('triHeight').value);
+            const area = 0.5 * base * height;
+            const perimeter = base + 2 * Math.sqrt(Math.pow(base / 2, 2) + Math.pow(height, 2));
+            document.getElementById('triArea').textContent = area.toFixed(2);
+            document.getElementById('triPerimeter').textContent = perimeter.toFixed(2);
+        }
+    </script>
+</body>
+</html
