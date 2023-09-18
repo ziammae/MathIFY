@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trapezoid Calculator</title>
+</head>
+<body>
+    <h1>MathIFY</h1>
+    <h2>Trapezoid Calculator</h2>
+    <label for="base1">Enter the length of the first base:</label>
+    <input type="number" id="base1" placeholder="Base 1">
+    <br>
+    <label for="base2">Enter the length of the second base:</label>
+    <input type="number" id="base2" placeholder="Base 2">
+    <br>
+    <label for="height">Enter the height of the trapezoid:</label>
+    <input type="number" id="height" placeholder="Height">
+    <br>
+    <label for="sideA">Enter the length of side A:</label>
+    <input type="number" id="sideA" placeholder="Side A">
+    <br>
+    <label for="sideB">Enter the length of side B:</label>
+    <input type="number" id="sideB" placeholder="Side B">
+    <br>
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get the lengths of the bases, height, and sides of the trapezoid
+            const base1 = parseFloat(document.getElementById("base1").value);
+            const base2 = parseFloat(document.getElementById("base2").value);
+            const height = parseFloat(document.getElementById("height").value);
+            const sideA = parseFloat(document.getElementById("sideA").value);
+            const sideB = parseFloat(document.getElementById("sideB").value);
+
+            // Check if the inputs are valid numbers
+            if (isNaN(base1) || isNaN(base2) || isNaN(height) || isNaN(sideA) || isNaN(sideB)) {
+                alert("Please enter valid numbers for the base lengths, height, and side lengths.");
+                return;
+            }
+
+            // Calculate the perimeter
+            const perimeter = base1 + base2 + sideA + sideB;
+
+            // Calculate the area
+            const area = ((base1 + base2) / 2) * height;
+
+            // Display the results
+            document.getElementById("result").innerHTML = `Perimeter of the trapezoid: ${perimeter}<br>Area of the trapezoid: ${area.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

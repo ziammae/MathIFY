@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rectangle Calculator</title>
+</head>
+<body>
+    <h1>MathIFY</h1>
+    <h2>Rectangle Calculator</h2>
+    <label for="length">Enter the length of the rectangle:</label>
+    <input type="number" id="length" placeholder="Length">
+    <br>
+    <label for="width">Enter the width of the rectangle:</label>
+    <input type="number" id="width" placeholder="Width">
+    <br>
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get the length and width input values
+            const length = parseFloat(document.getElementById("length").value);
+            const width = parseFloat(document.getElementById("width").value);
+
+            // Check if the inputs are valid numbers
+            if (isNaN(length) || isNaN(width)) {
+                alert("Please enter valid numbers for the length and width.");
+                return;
+            }
+
+            // Calculate the perimeter and area
+            const perimeter = 2 * (length + width);
+            const area = length * width;
+
+            // Display the results
+            document.getElementById("result").innerHTML = `Perimeter of the rectangle: ${perimeter}<br>Area of the rectangle: ${area}`;
+        }
+    </script>
+</body>
+</html>

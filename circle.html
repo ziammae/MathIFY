@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circle Calculator</title>
+</head>
+<body>
+    <h1>MathIFY</h1>
+    <h2>Circle Calculator</h2>
+    <label for="radius">Enter the radius of the circle:</label>
+    <input type="number" id="radius" placeholder="Radius">
+    <br>
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get the radius input value
+            const radius = parseFloat(document.getElementById("radius").value);
+
+            // Check if the input is a valid number
+            if (isNaN(radius)) {
+                alert("Please enter a valid number for the radius.");
+                return;
+            }
+
+            // Calculate the circumference (perimeter) and area
+            const circumference = 2 * Math.PI * radius;
+            const area = Math.PI * Math.pow(radius, 2);
+
+            // Display the results
+            document.getElementById("result").innerHTML = `Circumference of the circle: ${circumference.toFixed(2)}<br>Area of the circle: ${area.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

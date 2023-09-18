@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangle Calculator</title>
+</head>
+<body>
+    <h1>MathIFY</h1>
+    <h2>Triangle Calculator</h2>
+    <label for="sideA">Enter the length of side A:</label>
+    <input type="number" id="sideA" placeholder="Side A">
+    <br>
+    <label for="sideB">Enter the length of side B:</label>
+    <input type="number" id="sideB" placeholder="Side B">
+    <br>
+    <label for="sideC">Enter the length of side C:</label>
+    <input type="number" id="sideC" placeholder="Side C">
+    <br>
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get the lengths of the three sides of the triangle
+            const sideA = parseFloat(document.getElementById("sideA").value);
+            const sideB = parseFloat(document.getElementById("sideB").value);
+            const sideC = parseFloat(document.getElementById("sideC").value);
+
+            // Check if the inputs are valid numbers
+            if (isNaN(sideA) || isNaN(sideB) || isNaN(sideC)) {
+                alert("Please enter valid numbers for the side lengths.");
+                return;
+            }
+
+            // Check if the side lengths form a valid triangle
+            if (sideA + sideB <= sideC || sideA + sideC <= sideB || sideB + sideC <= sideA) {
+                alert("These side lengths do not form a valid triangle.");
+                return;
+            }
+
+            // Calculate the perimeter
+            const perimeter = sideA + sideB + sideC;
+
+            // Calculate the area using Heron's formula
+            const s = perimeter / 2;
+            const area = Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC));
+
+            // Display the results
+            document.getElementById("result").innerHTML = `Perimeter of the triangle: ${perimeter}<br>Area of the triangle: ${area.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

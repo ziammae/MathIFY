@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parallelogram Calculator</title>
+</head>
+<body>
+    <h1>MathIFY</h1>
+    <h2>Parallelogram Calculator</h2>
+    <label for="base">Enter the length of the base of the parallelogram:</label>
+    <input type="number" id="base" placeholder="Base Length">
+    <br>
+    <label for="height">Enter the height of the parallelogram:</label>
+    <input type="number" id="height" placeholder="Height">
+    <br>
+    <label for="side">Enter the length of one side of the parallelogram:</label>
+    <input type="number" id="side" placeholder="Side Length">
+    <br>
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get the base, height, and side input values
+            const base = parseFloat(document.getElementById("base").value);
+            const height = parseFloat(document.getElementById("height").value);
+            const side = parseFloat(document.getElementById("side").value);
+
+            // Check if the inputs are valid numbers
+            if (isNaN(base) || isNaN(height) || isNaN(side)) {
+                alert("Please enter valid numbers for the base, height, and side.");
+                return;
+            }
+
+            // Calculate the perimeter and area
+            const perimeter = 2 * (base + side);
+            const area = base * height;
+
+            // Display the results
+            document.getElementById("result").innerHTML = `Perimeter of the parallelogram: ${perimeter}<br>Area of the parallelogram: ${area}`;
+        }
+    </script>
+</body>
+</html>

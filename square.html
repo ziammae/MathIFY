@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Square Calculator</title>
+</head>
+<body>
+    <h1>MathIFY</h1>
+    <h2>Square Calculator</h2>
+    <label for="sideLength">Enter the length of one side of the square:</label>
+    <input type="number" id="sideLength" placeholder="Side Length">
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get the side length input value
+            const sideLength = parseFloat(document.getElementById("sideLength").value);
+
+            // Check if the input is a valid number
+            if (isNaN(sideLength)) {
+                alert("Please enter a valid number for the side length.");
+                return;
+            }
+
+            // Calculate the perimeter and area
+            const perimeter = 4 * sideLength;
+            const area = sideLength * sideLength;
+
+            // Display the results
+            document.getElementById("result").innerHTML = `Perimeter of the square: ${perimeter}<br>Area of the square: ${area}`;
+        }
+    </script>
+</body>
+</html>
